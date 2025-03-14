@@ -6,4 +6,6 @@ public interface PedidoConsultaCepRepositoryPort {
     PedidoConsultaCep save(PedidoConsultaCep build);
 
     PedidoConsultaCep findByCep(String cep);
+
+    PedidoConsultaCep saveAndFlush(PedidoConsultaCep consultaByCep);
 }

@@ -1,8 +1,8 @@
-package br.sp.sp.portal.cep.application.ports.dtos.mappers;
+package br.sp.sp.portal.cep.application.ports.mappers;
 
 import br.sp.sp.portal.cep.adapters.in.resources.PedidoConsultaCepRequest;
-import br.sp.sp.portal.cep.application.ports.dtos.PedidoConsultarCepResponse;
-import br.sp.sp.portal.cep.application.ports.dtos.enums.StatusPedidoConsultaCepEnum;
+import br.sp.sp.portal.cep.application.ports.dtos.ConsultaCepResposta;
+import br.sp.sp.portal.cep.adapters.in.resources.PedidoConsultarCepResponse;
 import br.sp.sp.portal.cep.domain.models.PedidoConsultaCep;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -16,5 +16,6 @@ public interface PedidoConsultaCepMapper {
     PedidoConsultaCep toPedidoConsultaCep(PedidoConsultaCepRequest pedidoConsultaCepRequest);
 
 
-    PedidoConsultarCepResponse toPedidoConsultarCepResponse(PedidoConsultaCep pedidoConsultaCep);
+    @Mapping(target="consultaCepResposta", source = "response")
+    PedidoConsultarCepResponse toPedidoConsultarCepResponse(PedidoConsultaCep pedidoConsultaCep, ConsultaCepResposta response);
 }
