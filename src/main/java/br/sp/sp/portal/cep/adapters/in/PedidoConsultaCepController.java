@@ -1,8 +1,8 @@
 package br.sp.sp.portal.cep.adapters.in;
 
 import br.sp.sp.portal.cep.adapters.in.resources.PedidoConsultaCepRequest;
-import br.sp.sp.portal.cep.application.ports.PedidoConsultaCepPort;
-import br.sp.sp.portal.cep.application.ports.dtos.PedidoConsultarCepResponse;
+import br.sp.sp.portal.cep.application.ports.in.PedidoConsultaCepPort;
+import br.sp.sp.portal.cep.adapters.in.resources.PedidoConsultarCepResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

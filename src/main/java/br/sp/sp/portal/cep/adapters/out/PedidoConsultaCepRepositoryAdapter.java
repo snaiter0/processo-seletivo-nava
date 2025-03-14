@@ -21,4 +21,9 @@ public class PedidoConsultaCepRepositoryAdapter implements PedidoConsultaCepRepo
     public PedidoConsultaCep findByCep(String cep) {
         return pedidoConsultaCepRepository.findByCep(cep);
     }
+
+    @Override
+    public PedidoConsultaCep saveAndFlush(PedidoConsultaCep consultaByCep) {
+        return pedidoConsultaCepRepository.saveAndFlush(consultaByCep);
+    }
 }

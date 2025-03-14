@@ -1,0 +1,6 @@
+services:
+  cep-service:
+    build: .
+    container_name: cep-service
+    ports:
+      - "8080:8080"

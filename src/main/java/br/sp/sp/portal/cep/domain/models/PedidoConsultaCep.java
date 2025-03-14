@@ -1,6 +1,7 @@
 package br.sp.sp.portal.cep.domain.models;
 
 import br.sp.sp.portal.cep.application.ports.dtos.enums.StatusPedidoConsultaCepEnum;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.annotation.PostConstruct;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -27,7 +28,8 @@ public class PedidoConsultaCep {
     private String cep;
 
     @Column(name = "dat_hora_soli_cslt")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME, pattern = "dd-MM-yyyy@HH-mm-ssss")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime dataHoraSolicitacaoConsulta;
 
     @Column(name = "exchange_cslt")
@@ -40,8 +42,4 @@ public class PedidoConsultaCep {
     @Enumerated(EnumType.STRING)
     private StatusPedidoConsultaCepEnum status;
 
-    @PostConstruct
-    public void setDataHoraSolicitacaoConsultaNow() {
-        setDataHoraSolicitacaoConsulta(LocalDateTime.now());
-    }
 }
