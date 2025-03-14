@@ -2,5 +2,27 @@ services:
   cep-service:
     build: .
     container_name: cep-service
+    environment:
+      - server.port=8081
+      - api.externa.url=http://wiremock:8080/api/cep/
+    ports:
+      - "8081:8081"
+    networks:
+    - wiremock-network
+
+  wiremock:
+    image: wiremock/wiremock:2.35.0
+    container_name: wiremock
     ports:
       - "8080:8080"
+    volumes:
+      - ./mappings:/home/wiremock/mappings  # Direciona os arquivos de mapeamento locais para o container
+      - ./__files:/home/wiremock/__files  # Direciona arquivos de resposta mockada para o container
+    environment:
+      - JAVA_OPTS=-Dfile.encoding=UTF-8
+    networks:
+      - wiremock-network
+
+networks:
+  wiremock-network:
+    driver: bridge

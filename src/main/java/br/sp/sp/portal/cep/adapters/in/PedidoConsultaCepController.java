@@ -20,8 +20,8 @@ public class PedidoConsultaCepController {
         return ResponseEntity.status(HttpStatus.CREATED).body(pedidoConsultaCepPort.consultarCep(request));
     }
 
-    @GetMapping("/{cep}")
-    public ResponseEntity<PedidoConsultarCepResponse> registrarPedidoConsultaCep(@PathVariable("cep") String cep){
+    @GetMapping("/{CEP}")
+    public ResponseEntity<PedidoConsultarCepResponse> registrarPedidoConsultaCep(@PathVariable("CEP") String cep){
         return ResponseEntity.status(HttpStatus.OK).body(pedidoConsultaCepPort.consultarCep(cep));
     }
 }
